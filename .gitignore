@@ -1,0 +1,4 @@
+node_modules
+transcripts/*
+notes.md
+token.js

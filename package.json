@@ -1,0 +1,19 @@
+{
+  "name": "speech_to_text",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "transcribe": "node start_transcription.js",
+    "download": "node process_queue.js"
+  },
+  "author": "druchan",
+  "license": "ISC",
+  "dependencies": {
+    "d3": "^5.5.0",
+    "mkdirp": "^0.5.1",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.2"
+  }
+}
