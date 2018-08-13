@@ -2,7 +2,7 @@ const fs = require("fs");
 const d3 = require("d3");
 const mkdirp = require("mkdirp");
 const req = require("request-promise");
-const CONSTANTS = require("./constants");
+const CONSTANTS = require("./constants.js");
 const transcriptDir = `./transcripts`;
 const queueFile = `${transcriptDir}/q.csv`;
 mkdirp(transcriptDir);
@@ -45,17 +45,19 @@ async function init() {
   let i = 0;
   let retryIds = [];
   while (i < ids.length) {
-    const text = await getTranscript(ids[i].id).catch(err => console.log(err));
+    const text = await getTranscript(ids[i].id).catch(err => {
+      return null;
+    });
     if (text) {
       fs.writeFileSync(`${transcriptDir}/${ids[i].id}.txt`, text);
     } else {
-      retryIds.push({ id: ids[i] });
+      retryIds.push(ids[i]);
     }
     i++;
   }
   const output = d3.csvFormat(retryIds);
   fs.writeFileSync(queueFile, output);
-  console.log("Done");
+  console.log("Done.");
 }
 
 init();
