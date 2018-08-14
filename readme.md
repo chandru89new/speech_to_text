@@ -12,7 +12,9 @@ You'll need Nodejs (v8 or above).
 
 Clone the repo or download it to a folder. Then run:
 
-`npm install`
+```bash
+npm install
+```
 
 This will download all the necessary files.
 
@@ -20,7 +22,7 @@ This will download all the necessary files.
 
 Get an API key from [AssemblyAI][1].
 
-Open up `constants.js`. Save your API key it in the "api_key" variable in that file.
+Open up `constants.js`. Paste your API key in the "api_key" constant.
 
 ### Set your audio_src_url
 
@@ -30,11 +32,15 @@ In the same `constants.js` file, set the audio_src_url to the audio file you wan
 
 Finally run:
 
-`npm run transcribe`
+```bash
+npm run transcribe
+```
 
 And after a while
 
-`npm run download`
+```bash
+npm run download
+```
 
 The first one (transcribe) will send the request for transcription. AssemblyAI will take some time to transcribe (typically, 20% of the total time length of the audio file)
 
