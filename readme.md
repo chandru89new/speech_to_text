@@ -16,7 +16,7 @@ Clone the repo or download it to a folder. Then run:
 npm install
 ```
 
-This will download all the necessary files.
+This will download all the necessary libraries.
 
 ### Get your token from AssemblyAI and save it
 
@@ -24,16 +24,12 @@ Get an API key from [AssemblyAI][1].
 
 Open up `constants.js`. Paste your API key in the "api_key" constant.
 
-### Set your audio_src_url
-
-In the same `constants.js` file, set the audio_src_url to the audio file you want to transcribe. (The audio file needs to be uploaded to someplace and publicly accessible)
-
 ### Run the scripts
 
 Finally run:
 
 ```bash
-npm run transcribe
+npm run transcribe <single audio file url>
 ```
 
 And after a while
@@ -42,7 +38,7 @@ And after a while
 npm run download
 ```
 
-The first one (transcribe) will send the request for transcription. AssemblyAI will take some time to transcribe (typically, 20% of the total time length of the audio file)
+The first one (transcribe) will send the request for transcription. AssemblyAI will take some time to transcribe (typically, 20% of the total time length of the audio file). The audio file url should be publicly accessible (so you have to host the file somewhere).
 
 The second one will download any transcription that's in queue.
 

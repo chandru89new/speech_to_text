@@ -7,6 +7,13 @@ const queueFile = `${transcriptDir}/q.csv`;
 const CONSTANTS = require("./constants");
 mkdirp(transcriptDir);
 
+if (!process.argv[2])
+  return console.log(
+    "No file for transcription. Check the docs for `npm run transcribe <file>`"
+  );
+
+const audio_src_url = process.argv[2];
+
 const options = {
   url: "https://api.assemblyai.com/transcript",
   method: "post",
@@ -14,7 +21,7 @@ const options = {
     authorization: `Bearer ${CONSTANTS.api_key}`
   },
   body: JSON.stringify({
-    audio_src_url: CONSTANTS.audio_src_url
+    audio_src_url: audio_src_url
   })
 };
 
