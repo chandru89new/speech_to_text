@@ -39,3 +39,5 @@ And after a while
 The first one (transcribe) will send the request for transcription. AssemblyAI will take some time to transcribe (typically, 20% of the total time length of the audio file)
 
 The second one will download any transcription that's in queue.
+
+[1]: https://assemblyai.com
