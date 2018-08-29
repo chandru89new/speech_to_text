@@ -2,9 +2,9 @@ const req = require("request-promise");
 const fs = require("fs");
 const d3 = require("d3");
 const mkdirp = require("mkdirp");
+require('dotenv').config();
 const transcriptDir = "./transcripts";
 const queueFile = `${transcriptDir}/q.csv`;
-const CONSTANTS = require("./constants");
 mkdirp(transcriptDir);
 
 if (!process.argv[2])
@@ -13,12 +13,13 @@ if (!process.argv[2])
   );
 
 const audio_src_url = process.argv[2];
+const key = process.env.API_KEY
 
 const options = {
   url: "https://api.assemblyai.com/transcript",
   method: "post",
   headers: {
-    authorization: `Bearer ${CONSTANTS.api_key}`
+    authorization: `Bearer ${key}`
   },
   body: JSON.stringify({
     audio_src_url: audio_src_url

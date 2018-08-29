@@ -1,14 +1,15 @@
 const fs = require("fs");
 const d3 = require("d3");
 const mkdirp = require("mkdirp");
+require('dotenv').config();
 const req = require("request-promise");
-const CONSTANTS = require("./constants.js");
 const transcriptDir = `./transcripts`;
 const queueFile = `${transcriptDir}/q.csv`;
 mkdirp(transcriptDir);
 
 const fileContents = fs.readFileSync(queueFile, "utf-8");
 const ids = d3.csvParse(fileContents);
+const key = process.env.API_KEY;
 
 function getTranscript(id) {
   return new Promise((resolve, reject) => {
@@ -16,7 +17,7 @@ function getTranscript(id) {
     const options = {
       url: `https://api.assemblyai.com/transcript/${id}`,
       method: "get",
-      headers: { authorization: `Bearer ${CONSTANTS.api_key}` }
+      headers: { authorization: `Bearer ${key}` }
     };
     console.log(
       `Downloading for Transcript ID: ${id} (if status is incompleted/queued, wont download)`

@@ -22,7 +22,14 @@ This will download all the necessary libraries.
 
 Get an API key from [AssemblyAI][1].
 
-Open up `constants.js`. Paste your API key in the "api_key" constant.
+Create a new `.env` file and add this to it:
+
+```
+API_KEY='...'
+```
+
+(Replace `...` with your API key)
+
 
 ### Run the scripts
 

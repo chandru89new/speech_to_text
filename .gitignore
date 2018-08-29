@@ -3,3 +3,4 @@ transcripts/*
 notes.md
 start_transcription_local.js
 process_queue_local.js
+.env
